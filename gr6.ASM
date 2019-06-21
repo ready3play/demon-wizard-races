@@ -1,8 +1,8 @@
            PAGE    80,132
 ;===================================================================
-;                  DEMON AND WIZARD RACES 100,000 BC
+;                  PROGRAM LISTING 13.6
 ;
-; 
+; PROGRAM TO MOVE A FACE AROUND THE SCREEN
 ;===================================================================
                                        ;PROCEDURES TO
            EXTRN   CLEAR:FAR           ;CLEAR VIDEO SCREEN
