@@ -1,8 +1,8 @@
-           PAGE    80,132
+
 ;===================================================================
-;                  PROGRAM LISTING 13.6
+;                  DEMON WIZARD RACES
 ;
-; PROGRAM TO MOVE A FACE AROUND THE SCREEN
+; WELCOME TO THE DEMON WIZARD RACES OF 100,000 BC
 ;===================================================================
                                        ;PROCEDURES TO
            EXTRN   CLEAR:FAR           ;CLEAR VIDEO SCREEN
@@ -32,7 +32,7 @@ LOWER           DW 0
 spawnup dw 1
 spawnlow     dw 20
 
-FACE       DB      8,8               ;7 x 11 SHAPE
+FACE       DB      8,8               ;8X8 SHAPE
            DB      20h,07H,20H,07H,20H,07H,20H,07H,20H,07H,223,04H
            DB              223,04H,20H,07H
            DB      20H,07H,20H,07H,20H,07H,20H,07H,2FH,07H,20H,07H
@@ -49,7 +49,7 @@ FACE       DB      8,8               ;7 x 11 SHAPE
            DB              20H,07H,20H,07H
            DB      20H,07H,2fH,07H,20H,07H,20H,07H,5cH,07H,20H,07H
            DB              20H,07H,20H,07H
-FACE2       DB      8,8               ;7 x 11 SHAPE
+FACE2       DB      8,8               ;8X8 SHAPE
            DB      20H,07H,20H,07H,20H,07H,20H,07H,20H,07H,5fH,04H
            DB              5fH,04H,20H,07H
            DB      20H,07H,20H,07H,20H,07H,20H,07H,2FH,07H,20H,07H
@@ -66,7 +66,7 @@ FACE2       DB      8,8               ;7 x 11 SHAPE
            DB              20H,07H,20H,07H
            DB      20H,07H,20H,07H,7cH,07H,7cH,07H,20H,07H,20H,07H
            DB              20H,07H,20H,07H
-FACESpell1       DB      8,8               ;7 x 11 SHAPE
+FACESpell1       DB      8,8               ;8X8 SHAPE
            DB      20H,07H,20H,07H,20H,07H,20H,07H,20H,07H,20H,07H
            DB              20H,07H,20H,07H
            DB      20H,07H,20H,07H,20H,07H,20H,07H,20H,07H,20H,07H
@@ -88,7 +88,7 @@ SAD_MOUTH  DB      02,11               ;2 x 11 SHAPE
            DB              5FH,07H,20H,07H
            DB      20H,07H,5CH,07H,20H,07H,2FH,07H,20H,07H,20H,07H
            DB              20H,07H,5CH,07H
-PROJECTILE DB      1,5
+PROJECTILE DB      1,5			;1X5 SHAPE
            DB      20h,0eH,176,0cH,177,0cH,178,04H,219,04H
 DEMON1     DB      10,12
            DB      20h,0CH,20h,0CH,20h,0CH,244,0CH,20h,0CH,20h,0CH,20h,0CH,20h,0CH,20h,0CH,20h,0CH,20h,0CH,20h,0CH
@@ -133,7 +133,7 @@ topwins db 1,25
 botwins db 1,22
         db 084,86H,104,86H,101,86H,032,86H,084,86H,111,86H,112,86H,032,86H,068,86H,101,86H,109,86H,111,86H,110,86H,032,86H,072,86H,097,86H,115,86H,032,86H,087,86H,111,86H,110,86H,033,86H      
 WINK       DB      1,1,2bh,86H         ;1 X 1 SHAPE
-erase       DB      1,5,20h,07H,20h,07H,20h,07H,20h,07H,20h,07H,         ;1 X 1 SHAPE
+erase       DB      1,5,20h,07H,20h,07H,20h,07H,20h,07H,20h,07H,         ;ERASER
 ;===================================================================
 ; C O D E   S E G M E N T   D E F I N I T I O N
 ;
@@ -201,7 +201,7 @@ call delay
 
 
 
-           LEA     SI,FACE2              ;SPTR = ADDRESS OF FACE
+           LEA     SI,FACE2             
            MOV     DH,1                 ;I = 3
            MOV     DL,1                ;J = 18
            MOV     AL,1
@@ -234,7 +234,7 @@ MOV DI, 2
 
 ;======================================================================
 
-            LEA     SI,Face2         ;SPTR = ADDRESS OF SAD_MOUTH
+            LEA     SI,Face2         
            CALL    PUTSHAPE
 ;==================================================================
            push cx
@@ -264,14 +264,14 @@ call delau
 
 
 
-           LEA     SI,facespell1         ;SPTR = ADDRESS OF SAD_MOUTH
+           LEA     SI,facespell1         ;
            CALL    PUTSHAPE             ;CALL PUTSHAPE(SPTR,PG,I,J)
-           MOV     AL,1                 ;DELAY 5 SECONDS
+           MOV     AL,1                 ;
            CALL    DELAY
-           LEA     SI,FACE              ;SPTR = ADDRESS OF WINK
+           LEA     SI,FACE              ;
            call putshape
  
-           CALL    projshoot             ;CALL PUTSHAPE(SPTR,PG,I,J)
+           CALL    projshoot             ;
 
            call placing
            call startrace
